@@ -15,7 +15,7 @@ ggmap(map_road)
 gc1 <- geocode("Crooklets Beach, Bude")
 gc2 <- geocode("Summerleaze Beach, Bude")
 gc3 <- geocode("Cricket-bude, Bude")
-gc4 <- geocode("The Brendon Arms, Bude") ##test only 
+gc4 <- geocode("The Heron, Bude") 
 gc_combine <- rbind(gc1, gc2, gc3, gc4)
 ggmap(map_water) +
   geom_point(
@@ -31,7 +31,7 @@ ggmap(map_road) +
   )
 
 from <- "Cricket-bude, Bude"
-to <- "The Brendon Arms, Bude"
+to <- "The Heron, Bude"
 route_df <- route(from, to, structure = "route")
 ggmap(map_road) +
   geom_path(
