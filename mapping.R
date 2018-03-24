@@ -11,32 +11,34 @@ ggmap(map_water)
 map_road <- get_map(gc, source="google", maptype = "roadmap",zoom=14)
 ggmap(map_road)
 
-#mark points for crooklets Beach and Summerleaze Beach on watermap 
-gc1 <- geocode("Crooklets Beach, Bude")
-gc2 <- geocode("Summerleaze Beach, Bude")
-gc3 <- geocode("Cricket-bude, Bude")
-gc4 <- geocode("The Heron, Bude") 
-gc_combine <- rbind(gc1, gc2, gc3, gc4)
+#mark points for crooklets Beach, Summerleaze Beach, cricket-Bude and THe Heron on watermap 
+#gc1 <- geocode("Crooklets Beach, Bude")
+#gc2 <- geocode("Summerleaze Beach, Bude, UK")
+#gc3 <- geocode("Bude North Cornwall Cricket Club, Bude, UK")
+#gc4 <- geocode("Crooklets Inn, Bude,UK") 
+
+lon <- c(-4.553962,-4.551349,-4.552814,-4.550984)
+lat <- c(50.83587,50.83054,50.83347,50.8362)
+
+df <- as.data.frame(cbind(lon,lat))
+
 ggmap(map_water) +
   geom_point(
-    aes(x = lon, y = lat),
-    data = gc_combine, color = "red", size = 3
+    aes(x = df$lon, y = df$lat),
+    data = df, color = "red", size = 3
   )
 
-#mark points for crooklets Beach and Summerleaze Beach on roadmap
-ggmap(map_road) +
-  geom_point(
-    aes(x = lon, y = lat),
-    data = gc_combine, color = "red", size = 3
-  )
+#mark points for crooklets Beach,Summerleaze Beach,cricket-Bude, crooklets Inn and shortest distance on roadmap
 
-from <- "Cricket-bude, Bude"
-to <- "The Heron, Bude"
+from <- "Bude North Cornwall Cricket Club, Bude, UK"
+to <- "Crooklets Inn, Bude"
 route_df <- route(from, to, structure = "route")
 ggmap(map_road) +
   geom_path(
-    aes(x = lon, y = lat), color = "red", size = 1.5,
-    data = route_df, lineend = "round"
-    )
+    aes(x = lon, y = lat), color = "red", size = 2,
+    data = route_df, lineend = "round")+
+  geom_point(aes(x=df$lon, y=df$lat),
+             data=df, color = "red", size=2)
+    
 
 

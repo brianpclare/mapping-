@@ -1,0 +1,86 @@
+---
+title: "Map"
+author: "Yuehan Xiao"
+date: "3/24/2018"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggmap)
+library(tidyverse)
+library(magick)
+```
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+gc <- geocode("Bude")
+map_water <- get_map(gc, source="stamen", maptype = "watercolor",zoom=14)
+map_road <- get_map(gc, source="google", maptype = "roadmap",zoom=14)
+lon <- c(-4.553962,-4.551349,-4.552814,-4.550984)
+lat <- c(50.83587,50.83054,50.83347,50.8362)
+df <- as.data.frame(cbind(lon,lat))
+```
+
+## Water Map with 4 locations
+
+```{r, echo=FALSE, warning=FALSE}
+ggmap(map_water) +
+  geom_point(
+    aes(x = df$lon, y = df$lat),
+    data = df, color = "red", size = 3
+  )
+```
+
+## Road Map with 4 locations and shortest distance 
+
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+from <- "Bude North Cornwall Cricket Club, Bude, UK"
+to <- "Crooklets Inn, Bude"
+route_df <- route(from, to, structure = "route")
+ggmap(map_road) +
+  geom_path(
+    aes(x = lon, y = lat), color = "red", size = 2,
+    data = route_df, lineend = "round")+
+  geom_point(aes(x=df$lon, y=df$lat),
+             data=df, color = "red", size=2)
+```
+
+
+
+##Picture for Crooklets Beach
+
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+CrookletsBeach<-image_scale(image_read('https://www.cornwall-beaches.co.uk/public/photos/crooklets.jpg', "200x300"))
+print(CrookletsBeach)
+```
+
+
+
+##Picture for Summerleaze Beach
+
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+SummerleazeBeach<-image_scale(image_read('https://www.aspects-holidays.co.uk/webpics/CMS/Owners/Bude.jpg'))
+print(SummerleazeBeach)
+```
+
+
+
+##Picture for Bude North Cornwall Cricket Club
+
+```{r, echo=FALSE, message= FALSE, warning=FALSE}
+Cricket<-image_scale(image_read('https://www.telegraph.co.uk/content/dam/Travel/galleries/travel/destinations/europe/uk/Englands-most-beautiful-cricket-grounds/cricket-bude_3378037a.jpg'))
+print(Cricket)
+```
+
+
+
+##Picture for Crooklets Inn
+
+```{r, echo=FALSE, message= FALSE, warning=FALSE,fig.height=50, fig.width=100}
+CrookletsInn<-image_scale(image_read('https://media-cdn.tripadvisor.com/media/photo-s/03/c2/01/5d/crooklets-inn.jpg'))
+print(CrookletsInn)
+```
+
