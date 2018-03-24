@@ -5,6 +5,7 @@ date: "3/24/2018"
 output:
   pdf_document: default
   html_document: default
+  word_document: default
 ---
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
@@ -52,8 +53,8 @@ ggmap(map_road) +
 
 ##Picture for Crooklets Beach
 
-```{r, echo=FALSE, message= FALSE, warning=FALSE}
-CrookletsBeach<-image_scale(image_read('https://www.cornwall-beaches.co.uk/public/photos/crooklets.jpg', "200x300"))
+```{r, echo=FALSE,  warning=FALSE}
+CrookletsBeach<-image_scale(image_read('https://www.cornwall-beaches.co.uk/public/photos/crooklets.jpg',"x300"))
 print(CrookletsBeach)
 ```
 
@@ -61,8 +62,8 @@ print(CrookletsBeach)
 
 ##Picture for Summerleaze Beach
 
-```{r, echo=FALSE, message= FALSE, warning=FALSE}
-SummerleazeBeach<-image_scale(image_read('https://www.aspects-holidays.co.uk/webpics/CMS/Owners/Bude.jpg'))
+```{r, echo=FALSE, warning=FALSE}
+SummerleazeBeach<-image_scale(image_read('https://www.aspects-holidays.co.uk/webpics/CMS/Owners/Bude.jpg',"x300"))
 print(SummerleazeBeach)
 ```
 
@@ -70,8 +71,8 @@ print(SummerleazeBeach)
 
 ##Picture for Bude North Cornwall Cricket Club
 
-```{r, echo=FALSE, message= FALSE, warning=FALSE}
-Cricket<-image_scale(image_read('https://www.telegraph.co.uk/content/dam/Travel/galleries/travel/destinations/europe/uk/Englands-most-beautiful-cricket-grounds/cricket-bude_3378037a.jpg'))
+```{r, echo=FALSE,  warning=FALSE}
+Cricket<-image_scale(image_read('https://www.telegraph.co.uk/content/dam/Travel/galleries/travel/destinations/europe/uk/Englands-most-beautiful-cricket-grounds/cricket-bude_3378037a.jpg',"x300"))
 print(Cricket)
 ```
 
@@ -79,8 +80,8 @@ print(Cricket)
 
 ##Picture for Crooklets Inn
 
-```{r, echo=FALSE, message= FALSE, warning=FALSE,fig.height=50, fig.width=100}
-CrookletsInn<-image_scale(image_read('https://media-cdn.tripadvisor.com/media/photo-s/03/c2/01/5d/crooklets-inn.jpg'))
+```{r, echo=FALSE, warning=FALSE}
+CrookletsInn<-image_scale(image_read('https://media-cdn.tripadvisor.com/media/photo-s/03/c2/01/5d/crooklets-inn.jpg',"x300"))
 print(CrookletsInn)
 ```
 
