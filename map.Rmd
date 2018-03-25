@@ -53,35 +53,39 @@ ggmap(map_road) +
 
 ##Picture for Crooklets Beach
 
-```{r, echo=FALSE,  warning=FALSE}
-CrookletsBeach<-image_scale(image_read('https://www.cornwall-beaches.co.uk/public/photos/crooklets.jpg',"x300"))
-print(CrookletsBeach)
+```{r, echo=FALSE, warning=FALSE,fig.height=8,fig.width=8}
+CrookletsBeach<-image_scale(image_read('https://www.cornwall-beaches.co.uk/public/photos/crooklets.jpg',"600x"))%>%
+  image_annotate("Crooklet Beach", size = 20, color = "white")
+plot(CrookletsBeach)
 ```
 
 
 
 ##Picture for Summerleaze Beach
 
-```{r, echo=FALSE, warning=FALSE}
-SummerleazeBeach<-image_scale(image_read('https://www.aspects-holidays.co.uk/webpics/CMS/Owners/Bude.jpg',"x300"))
-print(SummerleazeBeach)
+```{r, echo=FALSE, warning=FALSE,fig.height=8,fig.width=8}
+SummerleazeBeach<-image_scale(image_read('https://www.aspects-holidays.co.uk/webpics/CMS/Owners/Bude.jpg',"600x"))%>%
+  image_annotate("Summerleaze Beach", size = 20, color = "white")
+plot(SummerleazeBeach)
 ```
 
 
 
 ##Picture for Bude North Cornwall Cricket Club
 
-```{r, echo=FALSE,  warning=FALSE}
-Cricket<-image_scale(image_read('https://www.telegraph.co.uk/content/dam/Travel/galleries/travel/destinations/europe/uk/Englands-most-beautiful-cricket-grounds/cricket-bude_3378037a.jpg',"x300"))
-print(Cricket)
+```{r, echo=FALSE, warning=FALSE,fig.height=8,fig.width=8}
+Cricket<-image_scale(image_read('https://www.telegraph.co.uk/content/dam/Travel/galleries/travel/destinations/europe/uk/Englands-most-beautiful-cricket-grounds/cricket-bude_3378037a.jpg',"x300"))%>%
+  image_annotate("Cricket Club", size = 20, color = "white")
+plot(Cricket)
 ```
 
 
 
 ##Picture for Crooklets Inn
 
-```{r, echo=FALSE, warning=FALSE}
-CrookletsInn<-image_scale(image_read('https://media-cdn.tripadvisor.com/media/photo-s/03/c2/01/5d/crooklets-inn.jpg',"x300"))
-print(CrookletsInn)
+```{r, echo=FALSE, warning=FALSE,fig.height=8,fig.width=8}
+CrookletsInn<-image_scale(image_read('https://media-cdn.tripadvisor.com/media/photo-s/03/c2/01/5d/crooklets-inn.jpg',"x300"))%>%
+  image_annotate("Crooklet Inn", size = 20, color = "white")
+plot(CrookletsInn)
 ```
 
