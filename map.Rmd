@@ -1,5 +1,5 @@
 ---
-title: "Map"
+title: "Bude Map"
 author: "Yuehan Xiao"
 date: "3/24/2018"
 output:
@@ -26,7 +26,6 @@ df <- data.frame("lon" = lon, "lat" = lat)
 ```
 
 ## Water Map with 4 locations
-
 ```{r, echo=FALSE, warning=FALSE}
 ggmap(map_water) +
   geom_point(
@@ -35,8 +34,9 @@ ggmap(map_water) +
   )
 ```
 
-## Road Map with 4 locations and shortest distance 
+The four locations on the water map represent Crooklets Beach, Summerleaze Beach,Bude North Cornwall Cricket Club and The Barrel at Bude.
 
+## Road Map with 4 locations and shortest distance 
 ```{r, echo=FALSE, message= FALSE, warning=FALSE}
 from <- "Bude North Cornwall Cricket Club, Bude, UK"
 to <- "The Barrel at Bude"
@@ -48,44 +48,36 @@ ggmap(map_road) +
   geom_point(aes(x=df$lon, y=df$lat),
              data=df, color = "red", size=2)
 ```
-
-
+The four locations on the road Map represent Crooklets Beach, Summerleaze Beach,Bude North Cornwall Cricket Club and The Barrel at Bude. It also indicates the shortest distance from Cricket Club to the nearest pub, which is the Barrel. 
 
 ##Picture for Crooklets Beach
-
 ```{r, echo=FALSE, warning=FALSE,fig.height=8,fig.width=8}
 CrookletsBeach<-image_scale(image_read('https://www.cornwall-beaches.co.uk/public/photos/crooklets.jpg',"600x"))%>%
   image_annotate("Crooklet Beach", size = 20, color = "white")
 plot(CrookletsBeach)
 ```
-
-
+Crooklets Beach is at the north side of the Bude. It is very famous with surfers. This beach has great facilities, such as a large parking lot, showering place, cafe and other places that could offer conviennt for tourists. 
 
 ##Picture for Summerleaze Beach
-
 ```{r, echo=FALSE, warning=FALSE,fig.height=8,fig.width=8}
 SummerleazeBeach<-image_scale(image_read('https://www.aspects-holidays.co.uk/webpics/CMS/Owners/Bude.jpg',"600x"))%>%
   image_annotate("Summerleaze Beach", size = 20, color = "white")
 plot(SummerleazeBeach)
 ```
-
-
+Summerleaze Beach is less than five minutes' walk from the centre of Bude. The river, with its bobbing fishing boats, flanks the wide, sandy beach that is sheltered by the impressive breakwater, making the beach particularly popular with families and surfers.
 
 ##Picture for Bude North Cornwall Cricket Club
-
 ```{r, echo=FALSE, warning=FALSE,fig.height=8,fig.width=8}
 Cricket<-image_scale(image_read('https://www.telegraph.co.uk/content/dam/Travel/galleries/travel/destinations/europe/uk/Englands-most-beautiful-cricket-grounds/cricket-bude_3378037a.jpg',"x300"))%>%
   image_annotate("Cricket Club", size = 20, color = "white")
 plot(Cricket)
 ```
-
-
+Bude North Cornwall Cricket Club is situated on the clifftops overlooking the Atlantic Ocean. Bude North Cornwall Cricket Club was founded in 1870. Over the years it has played host to Hockey matches, Tennis, Cricket and even used for Mortar practice in WW2. 
 
 ##Picture for The Barrel at Bude
-
 ```{r, echo=FALSE, warning=FALSE,fig.height=8,fig.width=8}
 Barrel<-image_scale(image_read('http://www.micropubassociation.co.uk/wp-content/uploads/barrel-800x800.jpg',"x300"))%>%
   image_annotate("The Barrel at Bude", size = 20, color = "white")
 plot(Barrel)
 ```
-
+The Barrel is North Cornwall's first micropub selling Cornish craft ales. They only sell craft ales which they directly source from small independent Cornish brewers, (picking up each Monday) and have each week four real Cornish ales direct from the cask. 
